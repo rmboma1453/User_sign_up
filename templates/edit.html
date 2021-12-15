@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Creating inputs and the submit button -->
+    <!--Printing errors if they are found-->
+    <form action="/welcome" method="post">
+        <label>Username:
+           <input name="username" type="text"  />
+        </label>
+        {% if name_error %}
+            <p class="name_error">{{name_error}}</p> 
+        {% endif %}
+        <br>
+            
+        <label>Email adress:
+           <input name="email" type="email" />
+        </label> 
+        {% if email_error %}
+            <p class="email_error">{{email_error}}</p>         
+        {% endif %}
+        <br>
+
+        <label>Password:
+            <input name="password" type="password" />
+        </label> 
+        {% if pass_error %}
+            <p class="pass_error">{{pass_error}}</p>         
+        {% endif %}
+        <br>
+                     
+        <label>Password Confirmation:
+            <input name="confpassword" type="password" />
+        </label> 
+        {% if confpass_error %}
+            <p class="confpass_error">{{confpass_error}}</p>
+        {% endif %}
+        <br>
+        <input type="submit" value="Register" />
+       
+    </form>
+
+{% endblock %}
